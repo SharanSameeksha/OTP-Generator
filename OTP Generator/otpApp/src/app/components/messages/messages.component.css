@@ -1,0 +1,16 @@
+.lineHeight{
+    line-height: 5rem;
+}
+.margin-top {
+    margin-top: 3rem;
+}
+
+.success-text{
+    color: rgb(2, 65, 2);
+    margin-top: 2rem;
+}
+
+.failure-text{
+    color: red;
+    margin-top: 2rem;
+}

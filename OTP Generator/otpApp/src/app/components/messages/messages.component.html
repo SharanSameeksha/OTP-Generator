@@ -1,0 +1,31 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+<div class="container">
+  <div class="row lineHeight">
+    <div class="col-xs-6">First Name:</div><div class="col-xs-6">{{contact.FirstName}}</div>
+  </div>
+  <div class="row lineHeight">
+    <div class="col-xs-6">Last Name:</div><div class="col-xs-6">{{contact.LastName}}</div>
+  </div>
+  <div class="row lineHeight">
+    <div class="col-xs-6">Mobile: </div><div class="col-xs-6">{{contact.Mobile}}</div>
+  </div>
+  <div class="row lineHeight">
+    <h4>OTP (One Time Pasword): {{otp}}</h4>
+  </div>
+  <div class="row lineHeight">
+      <div class="col-xs-6">Message: </div><textarea class="col-xs-6" disabled= true>Hi. Your OTP is: {{otp}}</textarea>
+  </div>
+  <div class="row lineHeight margin-top">
+      <div class="col-xs-3"><button class="btn btn-success" (click)="generateOTP()">Regenerate OTP</button></div>
+      <div *ngIf="!ShowSuccess && !ShowFailure" class="col-xs-3"><button class="btn btn-success" (click)="sendOTP()">Send OTP</button></div>
+      <div *ngIf="ShowSuccess" class="col-xs-3"><button class="btn btn-success" (click)="sendOTP()">Resend OTP</button></div>
+  </div>
+  <div class="row" *ngIf="ShowSuccess" class="success-text">
+      OTP has been send to the Mobile
+      
+    </div>
+    <div class="row" *ngIf="ShowFailure" class="failure-text">
+        Error occured while sending OTP to the Mobile
+        <div><button class="btn btn-warning" (click)="sendOTP()">Retry OTP</button></div>
+    </div>
+</div>
